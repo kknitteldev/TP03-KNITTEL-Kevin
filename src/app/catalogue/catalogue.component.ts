@@ -14,7 +14,7 @@ export class CatalogueComponent implements OnInit {
   constructor(private firstService : FirstService)  { }
 
   observable4$!: Observable<any>;
-  observable5$! : Observable<any>;
+  observable5$!: Observable<any>;
  
   tabData : Array<String> = [];
   subscribe : any;
@@ -22,19 +22,29 @@ export class CatalogueComponent implements OnInit {
   tabLivre : Array<any> = [];
 
   ngOnInit(): void {
-
-   
-
     this.observable4$ = from ([
       {"titre":"linux","prix":10},
       {"titre":"windows","prix":15},
-      {"titre":"angular","prix":5}]
+      {"titre":"angular","prix":5},
+      {"titre":"talend","prix":0}]
     ); 
-    
-    //this.observable4$.pipe (filter (livre => livre.prix > 10  )).subscribe (livre => {this.tabLivre.push (livre)});
-
 
   }
+
+  onChange() {
+    let value = "" // à remplacer par la value
+
+    // this.tabData.forEach(v => {
+    //   if(v.titre == value){
+    //     this.observable4$ = from ([
+    //       {"titre":v.titre,"prix":v.prix}
+    //     ])
+    //     this.onClick();
+    //   }
+    // })
+    
+  }
+
   onClick () {
     this.firstService.log ("click catalogue")
 
@@ -52,9 +62,7 @@ export class CatalogueComponent implements OnInit {
     )
   } 
 
-  onChange() {
-    console.log(this);
-  }
+  
 
   onClickBackeng () {
     this.observable5$ = this.firstService.getCatalogue ();

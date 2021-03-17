@@ -22,7 +22,7 @@ export class FirstService {
     console.log (this.cpt + "" +this.datas );
   }
 
-  URL : string = "http://heroku...";
+  URL : string = "https://swapi.dev/api/";
 
   public getCatalogue () : Observable<any> {
     return this.httpClient.get<any> (environment.baseUrl);
