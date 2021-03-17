@@ -62,6 +62,10 @@ export class CatalogueComponent implements OnInit {
     )
   } 
 
+  onChange() {
+    console.log(this);
+  }
+
   onClickBackeng () {
     this.observable5$ = this.firstService.getCatalogue ();
   }
