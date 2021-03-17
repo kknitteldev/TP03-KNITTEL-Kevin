@@ -7,19 +7,18 @@ import { environment } from '../../environments/environment'
 @Injectable({
   providedIn: 'root'
 })
-export class FirstService {
 
-  
+export class FirstService {
   constructor(private httpClient : HttpClient) { 
     this.datas = new Array<string> ();  
   }
 
   cpt : number = 0;
   datas : string [];
-  log (data: string) {
-    this.datas.push (data);
+  log(data: string) {
+    this.datas.push(data);
     this.cpt++;
-    console.log (this.cpt + "" +this.datas );
+    console.log(this.cpt + "" +this.datas );
   }
 
   URL : string = "https://swapi.dev/api/";

@@ -8,6 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { FormulaireComponent } from './formulaire/formulaire.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { FilterPipe } from './catalogue/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -15,9 +16,13 @@ import { FormsModule } from '@angular/forms';
     CatalogueComponent,
     HeaderComponent,
     FormulaireComponent,
+    FilterPipe
   ],
   imports: [
-    BrowserModule,FormsModule,HttpClientModule,AppRoutingModule
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

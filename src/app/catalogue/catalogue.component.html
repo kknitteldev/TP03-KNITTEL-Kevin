@@ -1,22 +1,20 @@
 <h4>Catalogue produits</h4>
 
-<button (click)="onClick()"> Afficher produits</button>
-<input type="text" placeholder="recherche..." (keydown)="onChange()">
+<div>
+    <button (click)="onClick()">Afficher produits</button>
+    <input type="search" placeholder="Rechercher..." [(ngModel)]="searchText">
+</div>
 
-<br/>
-<div *ngFor = "let t of tabData">
+<div *ngFor = "let t of tabData | filter: searchText">
     {{t}}
 </div>
-<br/>
-<br/>
-<br/>
-<div *ngFor = "let l of tabLivre">
-    {{l.titre}} / {{l.prix}}
-</div>
 
-<br/>
-<button (click)="onClickBackeng()"> Get Backend</button>
+<!-- <ul *ngFor = "let l of tabLivre">
+    <li>{{l.titre}} / {{l.prix}}</li>
+</ul> -->
+
+<!-- <button (click)="onClickBackend()">Get Backend</button>
 
 <div  *ngFor = "let o of observable5$ | async">
-    {{o.titre}} / {{o.prix}} 
-</div>
+    {{o.titre}} / {{o.prix}}
+</div> -->

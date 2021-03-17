@@ -30,7 +30,6 @@ export class FormulaireComponent implements OnInit {
   click () {
     alert("Enregistrement !");
     this.firstService.log("click formulaire");
-    
   }
 
 }

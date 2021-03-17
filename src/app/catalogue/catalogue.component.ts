@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FirstService} from '../service/first.service';
 import {Observable,of,from} from 'rxjs';
 import {filter} from 'rxjs/operators';
+import { serializeNodes } from '@angular/compiler/src/i18n/digest';
+import { FormControl } from '@angular/forms';
 
 
 @Component({
@@ -9,7 +11,10 @@ import {filter} from 'rxjs/operators';
   templateUrl: './catalogue.component.html',
   styleUrls: ['./catalogue.component.css']
 })
+
 export class CatalogueComponent implements OnInit {
+
+  dataset = ['MDB', 'Angular', 'Bootstrap', 'Framework', 'SPA', 'React', 'Vue'];
 
   constructor(private firstService : FirstService)  { }
 
@@ -27,8 +32,7 @@ export class CatalogueComponent implements OnInit {
       {"titre":"windows","prix":15},
       {"titre":"angular","prix":5},
       {"titre":"talend","prix":0}]
-    ); 
-
+    );
   }
 
   onChange() {
@@ -39,32 +43,32 @@ export class CatalogueComponent implements OnInit {
     //     this.observable4$ = from ([
     //       {"titre":v.titre,"prix":v.prix}
     //     ])
-    //     this.onClick();
+    //     this.onClick()
+    //   console.log(v);
     //   }
     // })
-    
+
+    // search the user
   }
 
-  onClick () {
-    this.firstService.log ("click catalogue")
+  onClick() {
+    //this.firstService.log("click catalogue")
 
     if (this.subscribe) {
-      console.log ("unsubscribe")
-      this.subscribe.unsubscribe ();  
+      //console.log ("unsubscribe")
+      this.subscribe.unsubscribe ();
     }
 
     this.subscribe = this.observable4$.subscribe (
       {
-        next : value => {this.tabData.push ("Produit : "+value.titre+", prix:  "+value.prix)},
-        complete : () => {console.log ("complete")},
-        error : err =>  {console.log (err)}
+        next : value => { this.tabData.push("Produit : " + value.titre + ", prix:  " + value.prix) },
+        complete : () => { console.log ("complete") },
+        error : err =>  { console.log(err) }
       }
     )
   } 
 
-  
-
-  onClickBackeng () {
-    this.observable5$ = this.firstService.getCatalogue ();
+  onClickBackend() {
+    this.observable5$ = this.firstService.getCatalogue();
   }
 }
