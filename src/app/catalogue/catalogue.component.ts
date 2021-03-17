@@ -13,9 +13,6 @@ export class CatalogueComponent implements OnInit {
 
   constructor(private firstService : FirstService)  { }
 
-  observable1$! : Observable<string>;
-  observable2$ : Observable<Array<string>> = of (["Obs2 - Data 1","Obs2 - Data 2", "Obs2 - Data 3"]);
-  observable3$ : Observable<string> = from (["Obs3 - Data 1","Obs3 - Data 2", "Obs3 - Data 3"]);
   observable4$!: Observable<any>;
   observable5$! : Observable<any>;
  
@@ -26,14 +23,7 @@ export class CatalogueComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.observable1$ = new Observable (
-      observer => {
-        observer.next ("Data 1");
-        observer.next ("Data 2");
-        observer.next ("Data 3");
-        observer.complete ();
-      }
-    )
+   
 
     this.observable4$ = from ([
       {"titre":"linux","prix":10},
@@ -41,7 +31,7 @@ export class CatalogueComponent implements OnInit {
       {"titre":"angular","prix":5}]
     ); 
     
-    this.observable4$.pipe (filter (livre => livre.prix > 10  )).subscribe (livre => {this.tabLivre.push (livre)});
+    //this.observable4$.pipe (filter (livre => livre.prix > 10  )).subscribe (livre => {this.tabLivre.push (livre)});
 
 
   }
@@ -53,9 +43,9 @@ export class CatalogueComponent implements OnInit {
       this.subscribe.unsubscribe ();  
     }
 
-    this.subscribe = this.observable1$.subscribe (
+    this.subscribe = this.observable4$.subscribe (
       {
-        next : value => {this.tabData.push (value)},
+        next : value => {this.tabData.push ("Produit : "+value.titre+", prix:  "+value.prix)},
         complete : () => {console.log ("complete")},
         error : err =>  {console.log (err)}
       }

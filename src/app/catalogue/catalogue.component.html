@@ -1,20 +1,14 @@
 <h4>Catalogue produits</h4>
 
 <button (click)="onClick()"> Click</button>
-<input type="text" placeholder="recherche..." (change)="onChange()">
+<input type="text" placeholder="recherche..." (keydown)="onChange()">
 
 <br/>
 <div *ngFor = "let t of tabData">
     {{t}}
 </div>
 <br/>
-<div  *ngFor = "let o of observable2$ | async">
-    {{o}}
-</div>
 <br/>
-<div>
-    {{observable3$ | async}}
-</div>
 <br/>
 <div *ngFor = "let l of tabLivre">
     {{l.titre}} / {{l.prix}}
