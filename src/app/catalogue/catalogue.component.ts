@@ -37,22 +37,6 @@ export class CatalogueComponent implements OnInit {
     );
   }
 
-  onChange() {
-    let value = "" // à remplacer par la value
-
-    // this.tabData.forEach(v => {
-    //   if(v.titre == value){
-    //     this.observable4$ = from ([
-    //       {"titre":v.titre,"prix":v.prix}
-    //     ])
-    //     this.onClick()
-    //   console.log(v);
-    //   }
-    // })
-
-    // search the user
-  }
-
   onClick() {
     //this.firstService.log("click catalogue")
 
