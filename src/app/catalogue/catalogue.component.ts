@@ -16,6 +16,8 @@ export class CatalogueComponent implements OnInit {
 
   dataset = ['MDB', 'Angular', 'Bootstrap', 'Framework', 'SPA', 'React', 'Vue'];
 
+  searchText : string = "";
+
   constructor(private firstService : FirstService)  { }
 
   observable4$!: Observable<any>;
